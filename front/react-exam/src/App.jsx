@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import R031_ReactHook from "./ex030/R031_ReactHook";
+import R033_ReturnMap from "./ex030/R033_ReturnMap";
 
 function App() {
   return (
@@ -40,8 +40,10 @@ function App() {
       <ComponentCalss/> 
       <PureComponentClass/> 
       <R029_ShallowEqual/> 
-      <R030_FunctionComponent/> */}
-      <R031_ReactHook></R031_ReactHook>
+      <R030_FunctionComponent/> 
+      <R031_ReactHook></R031_ReactHook> 
+      <R032_Fragments/> */}
+      <R033_ReturnMap/>
 
 
 
