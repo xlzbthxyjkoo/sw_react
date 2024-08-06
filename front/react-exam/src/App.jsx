@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import R026_ForceUpdate from "./ex020/R026_ForceUpdate";
+import R031_ReactHook from "./ex030/R031_ReactHook";
 
 function App() {
   return (
@@ -35,9 +35,13 @@ function App() {
         <span>node from App.jsx</span>
       </R023_PropsNode>
       <R024_ReactState reactString={"react"}/>
-      <R025_SetState></R025_SetState> */}
-
-      <R026_ForceUpdate/>
+      <R025_SetState></R025_SetState> 
+      <R026_ForceUpdate/> 
+      <ComponentCalss/> 
+      <PureComponentClass/> 
+      <R029_ShallowEqual/> 
+      <R030_FunctionComponent/> */}
+      <R031_ReactHook></R031_ReactHook>
 
 
 
