@@ -1,7 +1,12 @@
 import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import R060_FetchPost from "./exe060/R060_FetchPost";
+import R068_OnMouseMove from "./exe060/R068_OnMouseMove";
+import R069_OnMouseOver from "./exe060/R069_OnMouseOver";
+import R070_OnMouseOut from "./exe070/R070_onMouseOut";
+import R071_OnKey from "./exe070/R071_Onkey";
+import R072_OnSubmit from "./exe070/R072_OnSubmit";
+import R073_ReactRef from "./exe070/R073_ReactRef";
 
 function App() {
   return (
@@ -57,9 +62,18 @@ function App() {
       <R056_SweeetalertBasic /> 
       <R057_SweetalertPosition/> 
       <R058_SweetalertConfirm/> 
-      <R059_FetchGet /> */}
-
-      <R060_FetchPost/>
+      <R059_FetchGet /> 
+      <R060_FetchPost/> 
+      <R061_AxiosGet/> 
+      <R062_AxiosPost/> 
+      <R066_onClick /> 
+      <R067_OnChange/> 
+      <R068_OnMouseMove/> 
+      <R069_OnMouseOver/> 
+      <R070_OnMouseOut/> 
+      <R071_OnKey/> 
+      <R072_OnSubmit/> */}
+      <R073_ReactRef/>
 
 
     </div>
