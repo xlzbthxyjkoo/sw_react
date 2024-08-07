@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import R055_ReactstrapTab from "./ex050/R055_ReactstrapTab";
+import R060_FetchPost from "./exe060/R060_FetchPost";
 
 function App() {
   return (
@@ -52,10 +52,14 @@ function App() {
       <R051_ReactstrapPopover/> 
       <R052_ReactstrapProgress /> 
       <R053_ReactstrapSpinner/>
-      <R054_ReactstrapTable/> */}
+      <R054_ReactstrapTable/> 
+      <R055_ReactstrapTab/> 
+      <R056_SweeetalertBasic /> 
+      <R057_SweetalertPosition/> 
+      <R058_SweetalertConfirm/> 
+      <R059_FetchGet /> */}
 
-      <R055_ReactstrapTab/>
-
+      <R060_FetchPost/>
 
 
     </div>
