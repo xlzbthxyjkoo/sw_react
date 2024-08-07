@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import R050_ReactstrapPagination from "./ex050/R050_ReactstrapPagination";
+import R055_ReactstrapTab from "./ex050/R055_ReactstrapTab";
 
 function App() {
   return (
@@ -47,8 +47,14 @@ function App() {
       <R033_ReturnMap/> 
       <R047_ReactstrapListGroup/> 
       <R048_ReactstrapModal/> 
-      <R049_ReactstrapNavbar /> */}
-      <R050_ReactstrapPagination/>
+      <R049_ReactstrapNavbar /> 
+      <R050_ReactstrapPagination/> 
+      <R051_ReactstrapPopover/> 
+      <R052_ReactstrapProgress /> 
+      <R053_ReactstrapSpinner/>
+      <R054_ReactstrapTable/> */}
+
+      <R055_ReactstrapTab/>
 
 
 
