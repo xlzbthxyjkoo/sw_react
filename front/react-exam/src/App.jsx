@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
-import R033_ReturnMap from "./ex030/R033_ReturnMap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import R050_ReactstrapPagination from "./ex050/R050_ReactstrapPagination";
 
 function App() {
   return (
@@ -42,8 +43,12 @@ function App() {
       <R029_ShallowEqual/> 
       <R030_FunctionComponent/> 
       <R031_ReactHook></R031_ReactHook> 
-      <R032_Fragments/> */}
-      <R033_ReturnMap/>
+      <R032_Fragments/> 
+      <R033_ReturnMap/> 
+      <R047_ReactstrapListGroup/> 
+      <R048_ReactstrapModal/> 
+      <R049_ReactstrapNavbar /> */}
+      <R050_ReactstrapPagination/>
 
 
 
