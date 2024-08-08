@@ -8,4 +8,4 @@ React 기본
 ReactStrap, SweetAlert2, Fetch, Axios
 
 **0808**
-Currying, Context, Redux
+Currying, Context, Redux, mobx
