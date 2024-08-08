@@ -3,17 +3,22 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import StrAddButton from './exe070/redux/StrAddButton';
 // import { connect } from "react-redux";
-import Counter from './exe070/counter/MyCounter';
+// import Counter from './exe070/counter/MyCounter';
+import Counter from './exe070/mobx_counter/Counter';
+import CounterStore from './exe070/mobx_counter/store/CounterStore';
 
-function App(props) {
+const myCounter = new CounterStore();
+
+function App() {
   return (
     <div>
-      <h1>React 실습</h1>
       {/* <span>{props.store.getState().data.strInStore}</span><br/> */}
       {/* <span>{props.strInApp}</span> */}
       {/* <StrAddButton store={props.store}/> */}
       {/* <StrAddButton AppProp="Study" /> */}
-      <Counter store ={props.store}/>
+      <div>
+      <Counter counter = {myCounter}/>
+      </div>
 
     </div>
   );
