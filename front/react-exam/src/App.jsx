@@ -1,12 +1,8 @@
 import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import R068_OnMouseMove from "./exe060/R068_OnMouseMove";
-import R069_OnMouseOver from "./exe060/R069_OnMouseOver";
-import R070_OnMouseOut from "./exe070/R070_onMouseOut";
-import R071_OnKey from "./exe070/R071_Onkey";
-import R072_OnSubmit from "./exe070/R072_OnSubmit";
-import R073_ReactRef from "./exe070/R073_ReactRef";
+import R076_ContextApi from "./exe070/context/R076_Context";
+import R075_ReactHoc from "./exe070/R075_ReactHoc";
 
 function App() {
   return (
@@ -72,8 +68,11 @@ function App() {
       <R069_OnMouseOver/> 
       <R070_OnMouseOut/> 
       <R071_OnKey/> 
-      <R072_OnSubmit/> */}
-      <R073_ReactRef/>
+      <R072_OnSubmit/> 
+      <R073_ReactRef/> 
+      <R074_ReactCurrying /> 
+      <R075_ReactHoc name='React200'/> */}
+      <R076_ContextApi/>
 
 
     </div>
