@@ -11,4 +11,4 @@ ReactStrap, SweetAlert2, Fetch, Axios
 Currying, 상태관리[Context, Redux, mobx]
 
 **0809**
-react-router-dom
+react-router-dom, client-server 나눠서 프로젝트 시작(client: vite server: express), DB 생성 후 연결, MyBatis, Postman
