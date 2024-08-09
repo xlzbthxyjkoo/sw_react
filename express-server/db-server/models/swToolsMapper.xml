@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace='swToolsMapper'>
+    <select id='selectSwToolList'>
+    <![CDATA[
+        SELECT 
+        swt_code
+        , swt_toolname
+        , swt_function
+        , swt_imagepath
+        , swt_big_imgpath
+        , swt_comments
+        , swt_demo_site
+        , swt_manual_path
+        , swt_github_url
+        , reg_date
+      FROM react_swtool
+      ORDER BY update_date DESC
+    ]]>
+    </select>
+</mapper>
