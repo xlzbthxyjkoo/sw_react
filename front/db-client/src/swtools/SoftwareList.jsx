@@ -27,7 +27,7 @@ function SoftwareList(props) {
                             <td>{data.swt_function}</td>
                             <td>{reg_date}</td>
                             <td>
-                                <Link to={'softwareView/' + data.swt_code}>
+                                <Link to={'/softwareView/' + data.swt_code}>
                                     <span className="badge bg-info text-dark">수정</span>
                                 </Link>
                                 <a href='#n'>

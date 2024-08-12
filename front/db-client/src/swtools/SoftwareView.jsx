@@ -1,11 +1,42 @@
-import React, {useEffect, useState} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import { Link, useNavigate, useParams} from "react-router-dom";
+import axios from "axios";
 import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SoftwareView() {
+    const params = useParams();
+    const beforeSwtcode = params.swtcode;
+
     let navigate = useNavigate();
     let handleFileInput = () => {};
+
+    useEffect(() => {
+        if(beforeSwtcode === 'register') {
+            //등록에 왔을 때는 수정버튼을 사라지게 함
+            document.querySelector('.modifyClass').style.display = 'none';
+        }
+        else {
+            callSwToolInfoApi();
+            //수정에 왔을 때는 저장버튼을 사라지게 함
+            document.querySelector('.saveClass').style.display = 'none';
+        }
+    });
+
+    let callSwToolInfoApi = () => {
+        axios.post('/api/tool/swtool?type=list', {
+            isSwtcode: beforeSwtcode,
+
+        }).then(response => {
+            let data = response.data.json[0];
+            document.querySelector('#is_Swt_toolname').value = data.swt_toolname;
+            document.querySelector('#is_Swt_demo_site').value = data.swt_demo_site;
+            document.querySelector('#is_Giturl').value = data.swt_github_url;
+            document.querySelector('#is_Comments').value = data.swt_comments;
+            document.querySelector('#is_Swt_function').value = data.swt_function;
+        }).catch(error => {alert('조회 오류'); return false;});
+    };
+
     let submitClick = (type, e) => {
         //화면갱신 방지
         e.preventDefault();
@@ -53,24 +84,48 @@ function SoftwareView() {
             document.querySelector('#is_Swt_function').removeAttribute('class');
             return true;
         }
+
+        if(fnValidate()) {
+            const formData = new FormData(document.querySelector("#frm"));
+            var Json_form = JSON.stringify(Object.fromEntries(formData));
+            const response = fetch('/api/tool/swtool?type=' + type, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: Json_form,
+            }).then(response => {
+                if(!response.ok) {
+                    throw new Error(`${response.status} 에러 발생`);
+                }
+                return response.json();
+            })
+            .then(body => {
+                if(body.code === "succ") {
+                    if(type === 'save') {
+                        sweetalertSucc('Software Tools 등록 성공', false);
+                    }
+                    setTimeout(function() {
+                        navigate('/softwareList');
+                    }, 1500);
+                }
+                else {
+                    alert('insert 오류');
+                }
+            }).catch(err => alert(err));
+        }
     };
 
-    if(fnValidate()) {
-        const formData = new FormData(document.querySelector("#frm"));
-        var Json_form = JSON.stringify(Object.fromEntries(formData));
-        const response = fetch('/api/tool/swtool?type=' + type, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: Json_form,
-        }).then(response => {
-            if(response.ok) {
-                throw new Error(`${response.status} 에러 발생`);
-            }
-            return response.json();
-        })
+
+    let sweetalertSucc = (title, showConfirmButton) => {
+        Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'title',
+            showConfirmButton: showConfirmButton,
+            timer: 1000
+        });
     }
 
     return (
@@ -163,7 +218,8 @@ function SoftwareView() {
                             </table>
                             <div style={{ "marginBottom": "44px" }}>
                                 <Link to={'/SoftwareList'} ><span className="badge bg-secondary">취소</span></Link>
-                                <a href="" onClick={(e) => submitClick('save', e)}><span className="badge bg-primary">저장</span></a>
+                                <a href="" className='saveClass' onClick={(e) => submitClick('save', e)}><span className="badge bg-primary">저장</span></a>
+                                <a href="" className='modifyClass' onClick={(e) => submitClick('modify', e)}><span className="badge bg-primary">수정</span></a>
                             </div>
                         </div>
                     </form>
@@ -173,4 +229,5 @@ function SoftwareView() {
     );
 }
 
+export default SoftwareView;
 

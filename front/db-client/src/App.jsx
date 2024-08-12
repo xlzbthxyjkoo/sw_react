@@ -15,7 +15,7 @@ function App() {
         <Route exact path='/getJson' element={<ApiGetJson/>}/>
         <Route exact path='/postJson' element={<ApiPostJson/>}/>
         <Route exact path='/softwareList' element={<SoftwareList/>}/>
-        <Route exact path='/softwareView' element={<SoftwareView/>}/>
+        <Route exact path='/softwareView/:swtcode' element={<SoftwareView/>}/>
       </Routes>
     </div>
   )

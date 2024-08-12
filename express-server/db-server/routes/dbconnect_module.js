@@ -18,14 +18,6 @@ const pool = mysql.createPool({
 
 })
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: '3306',
-    database: 'react_test',
-    user: 'react',
-    password: '1234',
-});
-
 router.post('/', (req, res) => {
     const mybatisMapper = require('mybatis-mapper');
     var param = req.body;
@@ -44,9 +36,20 @@ router.post('/', (req, res) => {
                 console.log('db error : ' + error);
             }
             console.log('db result : ' + results);
-            string = JSON.stringify(results);
-            var json = JSON.parse(string);
-            res.send({json});
+            if(results != undefined) {
+                string = JSON.stringify(results);
+                var json = JSON.parse(string);
+                if(req.body.crud == "select") {
+                    res.send({json});
+                }
+                else {
+                    res.send({code: 'succ'});
+                }     
+            }
+            else {
+                res.send({code: 'error'});
+            }
+            connection.release();
         });
     })
 })
