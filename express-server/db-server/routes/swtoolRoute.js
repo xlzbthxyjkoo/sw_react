@@ -20,7 +20,18 @@ router.post('/', (req, res, next) => {
             //next는 dbconnect_mode를 실행하게 됨
             next();
         }catch (error) {
-            console.log('Module > dbconnect error : ' + error);
+            console.log('Module > select dbconnect error : ' + error);
+        }
+    }
+    else if(type == 'save') {
+        //등록
+        try {
+            req.body.mapper = 'swToolsMapper';
+            req.body.crud = 'insert';
+            req.body.mapper_id = 'insertSwToolsInfo';
+            next();
+        }catch(error) {
+            console.log('Module > insert dbconnect error : ' + error);
         }
     }
 }, dbconnect_module);

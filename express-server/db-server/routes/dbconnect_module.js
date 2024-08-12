@@ -5,6 +5,19 @@ const bodyParser = require('body-parser');
 
 router.use(bodyParser.json());
 
+const pool = mysql.createPool({
+    //connection pool 최대 50개
+    connectionLimit: 50,
+    //50개 넘으면 wait하게 함
+    waitForConnections: true,
+    host: 'localhost',
+    port: '3306',
+    database: 'react_test',
+    user: 'react',
+    password: '1234',
+
+})
+
 const connection = mysql.createConnection({
     host: 'localhost',
     port: '3306',
@@ -24,16 +37,18 @@ router.post('/', (req, res) => {
     //namespace / namspace 아래 id
     var query = mybatisMapper.getStatement(param.mapper, param.mapper_id, param, format);
     
-    connection.query(query, function (error, results) {
-        if(error) {
-            console.log('db error : ' + error);
-        }
-        console.log('db result : ' + results);
-        string = JSON.stringify(results);
-        var json = JSON.parse(string);
-        res.send({json});
-    });
-
+    //pool에 있는 거 꺼내 옴
+    pool.getConnection(function (err, connection){
+        connection.query(query, function (error, results) {
+            if(error) {
+                console.log('db error : ' + error);
+            }
+            console.log('db result : ' + results);
+            string = JSON.stringify(results);
+            var json = JSON.parse(string);
+            res.send({json});
+        });
+    })
 })
 
 module.exports = router;
