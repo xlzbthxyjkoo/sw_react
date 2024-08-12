@@ -13,3 +13,7 @@ Currying, 상태관리[Context, Redux, mobx]
 **0809**<br/>
 react-router-dom, <br/>
 client-server 나눠서 프로젝트 시작(client: vite / server: express), DB 생성 후 연결, MyBatis, Postman
+
+**0812**<br/>
+Tools 프로젝트<br/>
+List 등록 기능 완성, 수정 기능 진행중
